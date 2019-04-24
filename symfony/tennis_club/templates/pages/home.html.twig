@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1> Liste de tous les evenements </h1>
+    {% for evt in event %}
+    <h4>{{ evt.TitreEvenements }}</h4> 
+    {{ evt.DetailsEvenements | raw }}
+    <p><i>{{ evt.dateEvenements | date('d/m/Y H:i')}}</i></p>
+    {% if app.user %}
+ <a href="{{path('commentaires_evenement',{'id' : evt.id})}}"><button type="submit" class = "btn btn-warning">Voir les réactions</button></a>
+    {% if is_granted('ROLE_USER') %}
+    <br/><br/><br/>
+    {% endif %}
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{path('supprimer_evenement',{'id' : evt.id})}}"><button type="submit" class = "btn btn-danger">supprimer l'événement</button></a>
+    <br/><br/><br/>
+    {% endif %}
+
+    {% endfor %}
+
+{% if is_granted('ROLE_ADMIN') %}
+<h3>Ajout d'un evenement</h3>
+{{form_start(formulaire)}}
+{{form_widget(formulaire)}}
+<button type="submit" class = "btn btn-success">Envoyer</button>
+{{form_end(formulaire)}}
+{% endif %}
+    {% endblock %}

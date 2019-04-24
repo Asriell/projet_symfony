@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Ajout de cours</h1>
+{{form_start(formulaire)}}
+{{form_row(formulaire.DateCours)}}
+{{form_row(formulaire.DureeCours, {'label': 'Duree', attr: {'placeholder': "duree", 'class' : "form-control"}})}}
+{{form_row(formulaire.EffectifCours, {'label': 'Effectifs', attr: {'placeholder': "effectifs", 'class' : "form-control"}})}}
+{{form_row(formulaire.IDCoachCours, {'label': 'le coach'})}}
+<button type="submit" class = "btn btn-success">Ajouter le cours</button>
+{{form_end(formulaire)}}
+{% endblock %}

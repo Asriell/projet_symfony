@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Contacts</h1>
+<ul>
+{% for s in staff %}
+<li>{% if s.renseignements.avatar != "" %} <img src="{{s.renseignements.avatar}}" alt="{{s.renseignements.pseudo}}" width = "60px" /> {% endif %} <h5>{{s.renseignements.nom}} {{s.renseignements.prenom}}</h5><b>Role : </b> {{s.role}} <br/> <b>Tel : </b> {{s.renseignements.tel}} <br/> <b>Mail : </b> <a href= "mailto:{{s.renseignements.mail}}">{{s.renseignements.mail}}</a><br/><br/><br/></li>
+{% endfor %}
+</ul>
+{% endblock %}

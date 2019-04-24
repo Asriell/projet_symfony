@@ -1,0 +1,22 @@
+<?php
+
+// src/Controller/TennisController.php
+
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+
+class TennisController
+{
+	public function index(): Response
+	{
+		return new Response('Salut les gens');	
+	}
+
+
+
+
+
+}
+
+?>

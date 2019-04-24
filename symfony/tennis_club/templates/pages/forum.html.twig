@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Sujets</h1>
+
+{% for s in sujet %}
+{% if s.id % 4 == 1 %}
+<a href= "{{path ('posts', { 'id' : s.id } ) }}" >
+<p class = "alert alert-success"><b>{{s.TitreTopic}}</b> <br/> <i>{{s.IDAuteurTopic.pseudo}}</i></p>
+</a>
+{% elseif s.id % 4 == 2 %}
+<a href= "{{path ('posts', { 'id' : s.id } ) }}" >
+<p class = "alert alert-warning"><b>{{s.TitreTopic}}</b> <br/> <i>{{s.IDAuteurTopic.pseudo}}</i></p>
+</a>
+{% elseif s.id % 4 == 3 %}
+<a href= "{{path ('posts', { 'id' : s.id } ) }}" >
+<p class = "alert alert-danger"><b>{{s.TitreTopic}}</b> <br/> <i>{{s.IDAuteurTopic.pseudo}}</i></p>
+</a>
+{% else %}
+<a href= "{{path ('posts', { 'id' : s.id } ) }}" >
+<p class = "alert alert-info"><b>{{s.TitreTopic}}</b> <br/> <i>{{s.IDAuteurTopic.pseudo}}</i></p>
+</a>
+{% endif %}
+
+{% endfor %}
+{% if app.user %}
+{{form_start(formulaire)}}
+{{form_row(formulaire.TitreTopic, {'label': 'Titre du sujet', attr: {'placeholder': "Titre"}})}}
+
+<button type="submit" class = "btn btn-success">+</button>
+{{form_end(formulaire)}}
+
+{% else %}
+<br/><br/><br/>
+<h3><b>Veuillez vous connecter pour ajouter un nouveau sujet</b></h3>
+{% endif %}
+{% endblock %}

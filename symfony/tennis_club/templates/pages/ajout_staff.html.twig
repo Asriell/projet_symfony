@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Ajout de staff</h1>
+
+{{form_start(formulaire)}}
+{{form_row(formulaire.renseignements, {'label': 'Nom du staff', attr: {'placeholder': "nom du staff", 'class' : "form-control"}})}}
+{{form_row(formulaire.role, {'label': 'Role du staff', attr: {'placeholder': "role du staff", 'class' : "form-control"}})}}
+
+<button type="submit" class = "btn btn-success">Enregistrer</button>
+{{form_end(formulaire)}}
+{% endblock %}

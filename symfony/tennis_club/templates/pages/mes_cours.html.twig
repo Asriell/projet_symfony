@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Liste de mes cours</h1>
+<ul>
+{% for inscr in inscription %}
+<li><b>Date : </b> {{inscr.DateCours | date('d/m/Y à H:i')}} <br/> <b>Duree : </b> {{inscr.DureeCours}} <br/> <b>Effectifs : </b> {{inscr.effectifCours}} <br/> <b>Dirigé par : </b> {{inscr.IDCoachCours.renseignements.nom}}    {{inscr.IDCoachCours.renseignements.prenom}}   <br/><br/><br/></li>
+
+{% endfor %}
+
+{% endblock %}

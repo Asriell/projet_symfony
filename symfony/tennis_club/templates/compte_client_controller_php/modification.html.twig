@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Modification</h1>
+
+{{form_start(formulaire)}}
+<h5>Nom : </h5>
+<p>{{app.user.Nom}}</p>
+<h5>Prénom : </h5>
+{{app.user.Prenom}}
+<h5>Date de naissance : </h5>
+<p>{{app.user.DateDeNaissance | date("d/m/Y")}}</p>
+{{form_widget(formulaire)}}
+<button type="submit" class = "btn btn-warning">Modifier</button>
+{{form_end(formulaire)}}
+
+{% endblock %}

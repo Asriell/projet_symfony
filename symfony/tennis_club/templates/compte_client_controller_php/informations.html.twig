@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Vos informations</h1>
+<!-- {{dump(app.user)}} -->
+{% if app.user.avatar != null %}
+    <img src="{{app.user.avatar}}" alt="{{app.user.pseudo}}" width = "75px" /> <br/><br/>
+{% endif %}
+<h5>Nom : </h5>
+<p>{{app.user.Nom}}</p>
+<h5>Prénom : </h5>
+{{app.user.Prenom}}
+<h5>Date de naissance : </h5>
+<p>{{app.user.DateDeNaissance | date("d/m/Y")}}</p>
+<h5>Pseudo : </h5>
+<p>{{app.user.pseudo}}</p>
+<h5>Tel : </h5>
+<p>{{app.user.tel}}</p>
+<h5>Email : </h5>
+<p>{{app.user.mail}}</p>
+
+<a href="{{path ('modification',{'id': app.user.id})}}"><button class="btn btn-warning">Modifier</button></a>
+{% endblock %}

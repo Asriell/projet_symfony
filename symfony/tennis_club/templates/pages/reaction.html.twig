@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>{{evenement.TitreEvenements}}</h1>
+<p>{{evenement.DetailsEvenements}}</p>
+{% for com in commentaire %}
+<div class="card border-secondary mb-3">
+  <div class="card-header">{{com.Date | date('d/m/Y')}} {{com.Date | date('H:i:s')}}</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">{{com.Auteur.pseudo}}</h5>
+    <p class="card-text">{{com.Texte}}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% if app.user %}
+<br/><br/><br/>
+{{form_start(formulaire)}}
+{{form_row(formulaire.texte, {'label': 'Ajouter un commentaire', attr: {'placeholder': "Texte du commentaire"}})}}
+<button type="submit" class = "btn btn-success">+</button>
+{{form_end(formulaire)}}
+
+{% else %}
+<br/><br/><br/>
+<h3><b>Veuillez vous connecter pour pouvoir discuter</b></h3>
+{% endif %}
+{% endblock %}

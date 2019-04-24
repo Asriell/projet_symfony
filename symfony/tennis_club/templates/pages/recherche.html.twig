@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Recherche de {{option}}</h1>
+
+{% if option == "Utilisateur" %}
+<ul>
+{% for elem in element %}
+
+<li><b>Nom : </b> {{ elem.nom }} <br/> <b>Prenom : </b> {{elem.prenom}} <br/> <b>Date de Naissance : </b> {{elem.Tel | date('d/m/Y')}} <br/> <b>Tel : </b> {{ elem.tel }} <br/> <b>Mail : </b> {{ elem.mail }} <br/><br/><br/></li>
+{% endfor %}
+</ul>
+
+
+{% elseif option == "Cours" %}
+
+<ul>
+{% for elem in element %}
+
+<li><b>Date : </b> {{elem.DateCours | date('d/m/Y à H:i')}} <br/> <b>Duree : </b> {{elem.DureeCours}} <br/> <b>Effectifs : </b> {{elem.effectifCours}} <br/> <b>Dirigé par : </b> {{elem.IDCoachCours.renseignements.nom}}    {{elem.IDCoachCours.renseignements.prenom}}   <br/><br/><br/></li>
+{% endfor %}
+</ul>
+
+{% else %}
+
+<ul>
+{% for elem in element %}
+
+<li><b>Titre : </b> {{elem.TitreEvenements}} <br/> <b>Date de parution : </b> {{elem.DateEvenements | date('d/m/Y H:i')}} <br/><br/><br/></li>
+{% endfor %}
+</ul>
+
+{% endif %}
+{% endblock %}

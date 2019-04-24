@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Inscription</h1>
+
+    {{ form_start(formulaire)}}
+    <div class = form-group>
+    {{form_row(formulaire.nom, {attr: {'placeholder': "Rasgrim", 'class' : "form-control"}})}}
+    </div><div class = form-group>
+    {{form_row(formulaire.prenom, {attr: {'placeholder': "Lesa", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.pseudo, {attr: {'placeholder': "Mondelf", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.tel, {attr: {'placeholder': "0123456789", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.mail, {attr: {'placeholder': "rasgrim.lesa@azerty.com", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.mdp, {'label': 'Mot de passe', attr: {'placeholder': "mot de passe", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.confirm_mdp, {'label': 'Confirmez le mot de passe', attr: {'placeholder': "Confirmez le mot de passe", 'class' : "form-control"}})}}
+     </div><div class = form-group>
+    {{form_row(formulaire.date_de_naissance, {attr: {'class' : "form-control"}})}}
+     </div>
+     <button type="submit" class = "btn btn-success">S'inscrire</button>
+    {{form_end(formulaire)}}
+
+{% endblock %}

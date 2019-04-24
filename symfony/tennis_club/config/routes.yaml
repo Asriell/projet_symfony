@@ -1,0 +1,7 @@
+home:
+    path: /
+    defaults: { _controller: 'App\Controller\TennisController::index' }
+
+#index:
+#	path: /
+#	defaults: { _controller: 'App\Controller\blabla::index' }

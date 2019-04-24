@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Liste des cours </h1>
+
+<ul>
+{% for c in cours %}
+<li><b>Date : </b> {{c.DateCours | date('d/m/Y à H:i')}} <br/> <b>Duree : </b> {{c.DureeCours}} <br/> <b>Effectifs : </b> {{c.effectifCours}} <br/> <b>Dirigé par : </b> {{c.IDCoachCours.renseignements.nom}}    {{c.IDCoachCours.renseignements.prenom}}   <br/><br/> <a href="{{path('inscription_cours',{'id' : c.id })}}"><button type="submit" class = "btn btn-success">S'inscrire</button></a><br/><br/><br/></li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}
